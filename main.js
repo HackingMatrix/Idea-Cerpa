@@ -10,21 +10,16 @@ const milisegundos = 86400000
  obtenerTickets.addEventListener('click', (e) => {
     
     const cantidadTicket = document.getElementById('cantidadBoleto')
-    
     if (e.target.classList.contains('adios')) {
-        cantidadTicket.innerHTML ++
-        
+        cantidadTicket.innerHTML ++  
     }
     else if ((e.target.classList.contains('hola')) && (cantidadTicket.innerHTML > 0)){
         cantidadTicket.innerHTML --
     }
-    
-    
  })
 
 const cantidadTicket = document.getElementById('cantidadBoleto')
 console.log(cantidadTicket.innerHTML);
-
 
 const precioboleto = () => {
  const eleccion = document.getElementById('inputGroupSelect01')
@@ -59,6 +54,46 @@ const modal = document.getElementById('botonComp')
     <span>Nombre: ${nombre.value} ${apellido.value}</span></br>
     <span>Enviamos los boletos a: ${mail.value}</span>
     `
-    
+    const datos = {
+    nombre: nombre.value,
+    apellido: apellido.value,
+    mail: mail.value,
+    precio: precio.value,
+    cantidad: cantidadTicket.innerHTML
+}
+obtenerDatos(datos)
+console.log(datos);
+guardarDatos(datos)
    parrafo.appendChild(div)
 })
+
+const obtenerDatos = (datos) => {
+    nombre.value = `${datos.nombre}`
+    apellido.value = `${datos.apellido}`
+    mail.value = `${datos.mail}`
+    precio.value = `${datos.precio}`
+    cantidadTicket.innerHTML = `${datos.cantidad}`
+    console.log(datos);
+};
+
+const guardarDatos = (datos) => {
+    localStorage.setItem('datos', JSON.stringify(datos))
+};
+
+const obtenerStorage = () => {
+    const datosStorage = JSON.parse(localStorage.getItem('datos'))
+    return datosStorage
+};
+
+const pintarDatos = () => {
+    if (localStorage.getItem('datos')) {
+    const datosStorage = obtenerStorage()
+    obtenerDatos(datosStorage)
+}
+};
+
+// const recordarDatos = document.getElementById('exampleCheck1')
+// recordarDatos.addEventListener('click', (e) => {
+//     console.log(e.target.id);
+// })
+pintarDatos ()
