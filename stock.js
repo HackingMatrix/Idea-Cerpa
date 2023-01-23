@@ -1,6 +1,7 @@
 const tickets = [
     {id:1,
-     fecha:'Febrero 30', 
+     dia: '30',   
+     fecha:'Febrero', 
      precio: 500, 
      locacion: 'Bar Rey Compadre', 
      hora: '8:00pm',

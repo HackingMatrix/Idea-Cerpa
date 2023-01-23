@@ -1,0 +1,50 @@
+[
+    {"id": 1,
+     "dia": 30,   
+     "fecha": "Febrero", 
+     "precio": 500, 
+     "locacion": "Bar Rey Compadre", 
+     "hora": "8:00pm",
+     "cantidad": 1},
+     
+
+    {"id":2,
+    "dia": 16,
+     "fecha": "Marzo", 
+     "precio": 400, 
+     "locacion": "La Llamarada Bar", 
+     "hora": "8:00pm",
+     "cantidad": 1},
+
+    {"id":3,
+    "dia":23,
+     "fecha":"Abril",
+     "precio": 350,
+     "locacion": "Contrapunto Bar",
+     "hora": "8:00pm",
+     "cantidad": 1},
+    
+        {"id":4,
+        "dia":30,
+        "fecha":"Febrero", 
+        "precio": 700, 
+        "locacion": "Bar Rey Compadre", 
+        "hora": "8:00pm",
+        "cantidad": 1},
+        
+   
+       {"id":5,
+       "dia":16,
+        "fecha":"Marzo", 
+        "precio": 600, 
+        "locacion": "La Llamarada Bar", 
+        "hora": "8:00pm",
+        "cantidad": 1},
+   
+       {"id":6,
+       "dia":23,
+        "fecha":"Abril",
+        "precio": 550,
+        "locacion": "Contrapunto Bar",
+        "hora": "8:00pm",
+        "cantidad": 1}]

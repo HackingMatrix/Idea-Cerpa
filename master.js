@@ -14,11 +14,12 @@ const btnComp = document.querySelector('#botonComp')
 const homero = document.getElementById('homero')
 
 let contador = 1
+
+
 console.log(homero);
+
 botAdd.addEventListener('click', () => {
     contador++
-    // console.log(precio.value);
-    // console.log(cantidadTicket.innerText);
     actualizarContador()
     precio.value = (precio.value/(cantidadTicket.innerText-1))*cantidadTicket.innerText
 })
@@ -37,15 +38,18 @@ const actualizarContador = () => {
     cantidadTicket.innerText = contador
 }
 
-eleccion.addEventListener('change', (e) => {
+eleccion.addEventListener('change', async (e) => {
+    
+    const info = await controllerTickets()
+    console.log(info);
+
         if (e.target.value == 1) {
-            precio.value = tickets[3].precio * cantidadTicket.innerText
+            precio.value = info[3].precio * cantidadTicket.innerText
         }
         if (e.target.value == 2) {
-            precio.value = tickets[0].precio * cantidadTicket.innerText
+            precio.value = info[0].precio * cantidadTicket.innerText
         }
 console.log(precio.value);
-
     })
 
 const validarFormulario = (e) =>  {
@@ -55,7 +59,6 @@ const validarFormulario = (e) =>  {
     const lastName = apellido.value
     const costo = precio.value
     const monto = cantidadTicket.innerHTML
- 
 }
 
 form.addEventListener('submit', validarFormulario)
@@ -87,7 +90,6 @@ btnComp.addEventListener('click', (e) => {
     } 
     else if(precio.value <= 0){
         Swal.fire({
-        
             icon: 'error',
             title:'Algo salió mal',
             text: 'Revisa los datos introducidos',
@@ -97,22 +99,6 @@ btnComp.addEventListener('click', (e) => {
         })    
     }
 })
-
-
-//  modal.addEventListener('click', () => {
-//     const parrafo = document.getElementById('modalCont')
-//     const div = document.createElement('div')
-//     div.innerHTML = `
-//     <span>Fecha: ${tickets[0].fecha}</span>
-//     <p>Precio: ${precio.value}</p>
-//     <span>Locación: ${tickets[0].locacion}</span></br>
-//     <span>Hora: ${tickets[0].hora}</span>
-//     <p>Cantidad: ${cantidadTicket.innerHTML}</p>
-//     <span>Nombre: ${nombre.value} ${apellido.value}</span></br>
-//     <span>Enviamos los boletos a: ${mail.value}</span>
-//     `
-//    parrafo.appendChild(div)
-// })
 
 const obtenerDatos = (datos) => {
     nombre.value = `${datos.nombre}`
@@ -142,10 +128,7 @@ const pintarDatos = () => {
 }
 };
 
-
-
 // // const recordarDatos = document.getElementById('exampleCheck1')
 // // recordarDatos.addEventListener('click', (e) => {
 // //     console.log(e.target.id);
 // // })
-// pintarDatos ()
