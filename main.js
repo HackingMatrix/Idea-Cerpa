@@ -7,7 +7,8 @@ const precio = document.getElementById('pintarPrecio')
 const hoy = new Date ('December 29, 2022')
 const nov = new Date ("November 30, 2023")
 const milisegundos = 86400000
- obtenerTickets.addEventListener('click', (e) => {
+
+obtenerTickets.addEventListener('click', (e) => {
     
     const cantidadTicket = document.getElementById('cantidadBoleto')
     if (e.target.classList.contains('adios')) {
@@ -16,7 +17,7 @@ const milisegundos = 86400000
     else if ((e.target.classList.contains('hola')) && (cantidadTicket.innerHTML > 0)){
         cantidadTicket.innerHTML --
     }
- })
+})
 
 const cantidadTicket = document.getElementById('cantidadBoleto')
 console.log(cantidadTicket.innerHTML);
